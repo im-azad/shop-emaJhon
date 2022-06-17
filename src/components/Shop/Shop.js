@@ -31,7 +31,6 @@ const Shop = () => {
 					// get product quantity
 					const quantity = savedCart[key];
 					addedProduct.quantity = quantity;
-
 					storedCard.push(addedProduct);
 				}
 			}

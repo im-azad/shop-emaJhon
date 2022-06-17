@@ -29,3 +29,6 @@
 	border: 1px solid #ff9800;
 	box-shadow: 0 5px 15px 8px rgba(0, 0, 0, 0.1);
 }
+.rating-color {
+	color: #ff9800;
+}

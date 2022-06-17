@@ -1,7 +1,8 @@
 .search-container {
 	background-color: #35363a;
 	text-align: center;
-	line-height: 60px;
+	line-height: 50px;
+	padding: 10px 0;
 }
 .search-container input {
 	width: 30%;
