@@ -7,13 +7,14 @@ import './Shop.css';
 const Shop = () => {
 	const [products, setProducts] = useState([]);
 	const [cart, setCart] = useState([]);
+	const [displayProducts, setDisplayProducts] = useState([]);
 	useEffect(() => {
 		// console.log('Api called');
 		fetch('./products.JSON')
 			.then((res) => res.json())
 			.then((data) => {
 				setProducts(data);
-				// console.log('Data loaded');
+				setDisplayProducts(data);
 			});
 	}, []);
 	useEffect(() => {
@@ -45,11 +46,25 @@ const Shop = () => {
 		// save to data local storage
 		addToDb(product.key);
 	};
+	const handleSearch = (event) => {
+		const searchText = event.target.value;
+		const matchedProduct = products.filter((product) =>
+			product.name.toLowerCase().includes(searchText.toLowerCase())
+		);
+		setDisplayProducts(matchedProduct);
+	};
 	return (
 		<div>
+			<div className='search-container'>
+				<input
+					onChange={handleSearch}
+					type='text'
+					placeholder='Search Product'
+				/>
+			</div>
 			<div className='shop-container'>
 				<div className='product-container'>
-					{products.map((product) => (
+					{displayProducts.map((product) => (
 						<Product
 							product={product}
 							key={product.key}
