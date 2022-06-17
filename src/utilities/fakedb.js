@@ -31,7 +31,7 @@ const removeFromDb = (id) => {
 		updateDb(shopping_cart);
 	}
 };
-
+// get data from local storage
 const getStoredCart = () => {
 	const exists = getDb();
 	return exists ? JSON.parse(exists) : {};
