@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
@@ -15,12 +16,12 @@ const Shop = () => {
 	const handleAddTOCart = (product) => {
 		const newCart = [...cart, product];
 		setCart(newCart);
+		addToDb(product.key);
 	};
 	return (
 		<div>
 			<div className='shop-container'>
 				<div className='product-container'>
-					<h2>Product {products.length}</h2>
 					{products.map((product) => (
 						<Product
 							product={product}
